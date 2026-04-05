@@ -3,6 +3,8 @@ Create your own Capture the Flags
 
 <img width="1148" height="841" alt="Screenshot 2026-04-04 200250" src="https://github.com/user-attachments/assets/ff88d458-56db-46b1-afe5-7f75d288dee5" />
 
+---
+
 ## Description
 Wanted to create a standalone CTF server to host offline.
 
@@ -16,6 +18,7 @@ Flag submissions are stored in `/ctf/data/submissions.yaml`
 
 You can modify any  of those files to reset users, flags and submissions.
 
+---
 
 ## Dependencies
 ```
@@ -34,7 +37,49 @@ cd ctf/app
 python main.py
 ```
 
+---
 
+## Dockerfile build
+Build the image
+```
+docker build -t ctf .
+```
+
+Start the container
+```
+docker run -d -p 8000:8000 --name ctf --hostname ctf ctf-image
+```
+
+## Docker setup
+Pull python image
+```
+docker pull python:3.11-slim
+```
+
+Start the container
+```
+docker run -it --name ctf --hostname ctf -p 80:8000 <image> bash
+```
+
+Update and install dependencies
+```
+apt udapte
+apt install wget nano git -y
+pip install flask pyyaml
+```
+
+Git this repo
+```
+git clone https://github.com/bwithe/ctf
+```
+
+Start the webserver
+```
+cd ctf/app
+python main.py
+```
+
+---
 
 ## Screenshots
 ### Login
@@ -60,3 +105,4 @@ python main.py
 ### Leaderboard
 
 <img width="1148" height="841" alt="Screenshot 2026-04-04 200250" src="https://github.com/user-attachments/assets/d7db0d69-363c-4c15-831d-9af17d35e5dd" />
+
