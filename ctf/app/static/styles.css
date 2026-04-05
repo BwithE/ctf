@@ -1,0 +1,312 @@
+/* ===== GLOBAL ===== */
+body {
+    margin: 0;
+    font-family: monospace;
+    background-color: #0d1117;
+    color: #00ff9f;
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* ===== NAVBAR ===== */
+.menu {
+    background-color: #161b22;
+    padding: 15px;
+    border-bottom: 1px solid #00ff9f;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.menu a {
+    color: #00ff9f;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-shadow: 0 0 5px #00ff9f;
+}
+
+.menu .right {
+    position: absolute;
+    right: 20px;
+}
+
+/* ===== CONTENT ===== */
+.content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== CENTER BOX ===== */
+.center-box {
+    width: 400px;
+    padding: 25px;
+    background-color: #161b22;
+    border: 1px solid #00ff9f;
+    box-shadow: 0 0 10px #00ff9f;
+    text-align: center;
+}
+
+/* ===== INPUTS ===== */
+input {
+    width: 90%;
+    margin: 10px 0;
+    padding: 8px;
+    background: black;
+    color: #00ff9f;
+    border: 1px solid #00ff9f;
+}
+
+/* ===== BUTTON ===== */
+button {
+    background: #161b22;
+    color: #00ff9f;
+    border: 1px solid #00ff9f;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+button:hover {
+    background: #00ff9f;
+    color: black;
+}
+
+/* ===== LOGIN TOGGLE ===== */
+.toggle-link {
+    margin-top: 15px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* ===== COLLAPSIBLE COLORS ===== */
+
+/* BLOCK (green default) */
+.block-btn {
+    border-color: #00ff9f;
+}
+
+/* SCENARIO (pink) */
+.scenario-btn {
+    border-color: #ff4dd2;
+    color: #ff4dd2;
+}
+
+.scenario-btn:hover {
+    background: #ff4dd2;
+    color: black;
+}
+
+/* TASK (blue) */
+.task-box {
+    border: 1px dashed #4da6ff;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* TASK TITLE (yellow) */
+.task-box strong {
+    color: #ffd24d;
+}
+
+/* ===== FEEDBACK ===== */
+.feedback-success {
+    color: #00ff00;
+}
+
+.feedback-fail {
+    color: #ff4d4d;
+}
+
+
+
+/*======= charts */
+/* Chart container */
+.chart-container {
+    width: 80%;
+    max-width: 800px;
+    height: 400px;
+    margin: 30px auto; /* top-center */
+    background-color: #161b22;
+    border: 1px solid #00ff9f;
+    padding: 15px;
+    box-shadow: 0 0 10px #00ff9f;
+    border-radius: 8px;
+}
+
+/* Table container */
+.table-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto 50px auto; /* centered below chart */
+    background-color: #161b22;
+    border: 1px solid #00ff9f;
+    padding: 15px;
+    box-shadow: 0 0 10px #00ff9f;
+    border-radius: 8px;
+}
+
+/* Table styling */
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #00ff9f;
+    text-align: center;
+    font-family: monospace;
+}
+
+.table-container th, .table-container td {
+    padding: 10px;
+    border-bottom: 1px solid #00ff9f;
+}
+
+.table-container th {
+    color: #ffff00;
+}
+
+.table-container tr:hover {
+    background-color: #00ff9f10; /* subtle highlight */
+}
+
+.leaderboard-wrapper {
+    display: flex;
+    flex-direction: column;  /* stack chart on top of table */
+    align-items: center;     /* center horizontally */
+    width: 100%;
+}
+
+.leaderboard-title {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2em;
+}
+
+
+
+
+/* Admin Panel Button Styling */
+.delete-btn {
+    margin-left: 10px; /* Space between the item and the delete button */
+    background-color: red;
+    color: white;
+}
+
+/* Small Delete Buttons */
+.small-btn {
+    font-size: 12px;
+    padding: 3px 8px;
+    width: auto;  /* Ensure button size is adjusted to content */
+}
+
+/* Block, Scenario, Task Layout */
+.block-header, .scenario-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.block-btn, .scenario-btn {
+    font-size: 16px;
+}
+
+.form-input {
+    padding: 5px;
+    margin: 5px;
+    width: 200px;
+}
+
+/* Task Box Styling */
+.task-box {
+    position: relative; /* Make sure the delete button is positioned inside the box */
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    min-height: 120px; /* Ensure task box has enough height */
+    box-sizing: border-box; /* Prevent padding from affecting width/height */
+}
+
+/* Position the Delete Button at the bottom-right corner of the Task Box */
+.task-box .delete-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    padding: 3px 8px;
+    width: auto;
+    min-width: 60px;  /* Ensure the button isn't too small */
+}
+
+
+/* ===== ADMIN UI IMPROVEMENTS ===== */
+
+.card {
+    background: #161b22;
+    border: 1px solid #00ff9f;
+    padding: 15px;
+    margin: 15px 0;
+    box-shadow: 0 0 8px #00ff9f33;
+    border-radius: 6px;
+}
+
+.block-card {
+    border: 2px solid #00ff9f;
+}
+
+.scenario-card {
+    border: 2px solid #ff4dd2;
+    margin-left: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 6px #ff4dd255;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    text-shadow: 0 0 5px #00ff9f;
+}
+
+.collapsible {
+    display: none;
+}
+
+.inline-form input {
+    margin: 5px;
+}
+
+.task-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px dashed #444;
+    padding: 10px 0;
+}
+
+button.danger {
+    background: red;
+    color: white;
+}
+
+button.small {
+    font-size: 12px;
+    padding: 5px;
+    width: auto;
+}

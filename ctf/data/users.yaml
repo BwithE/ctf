@@ -1,0 +1,13 @@
+users:
+  root:
+    is_admin: true
+    password: toor
+    points: 0
+  student01:
+    is_admin: false
+    password: asdfgh3
+    points: 0
+  student02:
+    is_admin: false
+    password: asdfgh3
+    points: 0

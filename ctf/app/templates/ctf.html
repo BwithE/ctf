@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="width: 80%;">
+
+{% if feedback %}
+    <p class="{{ 'feedback-success' if feedback == 'Correct!' else 'feedback-fail' }}">
+        {{ feedback }}
+    </p>
+{% endif %}
+
+{% set submissions = load_yaml("submissions.yaml").get("submissions", {}) %}
+{% set user_submissions = submissions.get(user, {}) %}
+
+{% for block, scenarios in flags.items() %}
+    <!-- BLOCK (green) -->
+    <button class="block-btn" onclick="toggle('{{ block }}')">{{ block }}</button>
+
+    <div id="{{ block }}" style="display:none; margin-left:20px;">
+        {% for scenario, tasks in scenarios.items() %}
+            <!-- SCENARIO (pink) -->
+            <button class="scenario-btn" onclick="toggle('{{ block }}_{{ scenario }}')">
+                {{ scenario }}
+            </button>
+
+            <div id="{{ block }}_{{ scenario }}" style="display:none; margin-left:20px;">
+                {% for task, data in tasks.items() %}
+                    {% set solved = user_submissions.get(block, {}).get(scenario, {}).get(task) %}
+                    <div class="task-box">
+                        <strong>{{ task }}</strong><br>
+                        {{ data.question }}<br>
+
+                        <form method="POST">
+                            <input type="hidden" name="block" value="{{ block }}">
+                            <input type="hidden" name="scenario" value="{{ scenario }}">
+                            <input type="hidden" name="task" value="{{ task }}">
+                            <input name="flag" value="{{ data.flag if solved else '' }}" 
+                                {% if solved %} readonly {% endif %}>
+                            {% if not solved %}<button type="submit">Submit</button>{% endif %}
+                        </form>
+
+                        {% if solved %}
+                            <p class="feedback-success">Solved ✅ (+{{ data.points }} pts)</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
+
+</div>
+
+<script>
+function toggle(id) {
+    let el = document.getElementById(id);
+    if (el.style.display === "none") {
+        el.style.display = "block";
+        localStorage.setItem(id, "open");
+    } else {
+        el.style.display = "none";
+        localStorage.setItem(id, "closed");
+    }
+}
+
+window.onload = function() {
+    let elements = document.querySelectorAll("[id]");
+    elements.forEach(el => {
+        if (localStorage.getItem(el.id) === "open") {
+            el.style.display = "block";
+        }
+    });
+};
+</script>
+
+{% endblock %}
