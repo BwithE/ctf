@@ -50,6 +50,8 @@ Start the container
 docker run -d -p 8000:8000 --name ctf --hostname ctf ctf-image
 ```
 
+---
+
 ## Docker setup
 Pull python image
 ```
