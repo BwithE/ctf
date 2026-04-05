@@ -3,6 +3,20 @@ Create your own Capture the Flags
 
 <img width="1148" height="841" alt="Screenshot 2026-04-04 200250" src="https://github.com/user-attachments/assets/ff88d458-56db-46b1-afe5-7f75d288dee5" />
 
+## Description
+Wanted to create a standalone CTF server to host offline.
+
+HIGHLY RECOMMEND not using a special password, hashing has not been added yet.
+
+Usernames and passwords are stored in `/ctf/data/users.yaml`
+
+Tasks and flags are stored in `/ctf/data/flags.yaml`
+
+Flag submissions are stored in `/ctf/data/submissions.yaml`
+
+You can modify any  of those files to reset users, flags and submissions.
+
+
 ## Dependencies
 ```
 pip install flask pyyaml
@@ -19,6 +33,8 @@ Start the webserver
 cd ctf/app
 python main.py
 ```
+
+
 
 ## Screenshots
 ### Login
