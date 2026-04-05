@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="center-box" style="width: 500px;">
+    <h2>Welcome {{ user }}!</h2>
+
+<p>
+{% if points is not none %}
+    You have <strong>{{ points }}</strong> points,
+    <span id="taunt"></span>
+{% else %}
+    <span id="taunt"></span>
+{% endif %}
+</p>
+    <hr>
+
+    <p id="quote"></p>
+</div>
+
+<script>
+const quotes = [
+  "Hack the planet!",
+  "I'm in.",
+  "Access granted.",
+  "Bypassing firewall...",
+  "Encryption is just a puzzle.",
+  "There is no patch for human stupidity.",
+  "The quieter you become, the more you can hear.",
+  "Knowledge is power.",
+  "Trust nothing. Verify everything.",
+  "First rule of hacking: leave no trace.",
+  "Zero-day vulnerabilities await.",
+  "Code never lies, comments sometimes do.",
+  "Ctrl+C, Ctrl+V — but ethically!",
+  "Think like a hacker, act like a guardian.",
+  "Exploit creativity, patch ignorance.",
+  "Phishers gonna phish.",
+  "Debugging is detective work.",
+  "Security through obscurity is a myth.",
+  "Every port tells a story.",
+  "Firewalls are just paper tigers.",
+  "The best hackers are the invisible ones.",
+  "Backdoors are invitations.",
+  "Passwords are the first line of defense.",
+  "Encryption: because plaintext is dangerous.",
+  "Social engineering: the human exploit.",
+  "Penetrate, persist, protect.",
+  "Hack smart, patch faster.",
+  "Ethical hacking is an art.",
+  "Packets never lie.",
+  "Exploit responsibly.",
+  "Trace the traceable.",
+  "Reverse engineering is poetry in code.",
+  "The network never forgets.",
+  "Observe, infiltrate, learn.",
+  "Hacking is curiosity applied.",
+  "Access denied? Try another vector.",
+  "Logs are your friend.",
+  "Security is a mindset.",
+  "Even root has to think twice.",
+  "Sometimes the simplest trick works.",
+  "Anonymous is powerful, informed is unstoppable.",
+  "One bug can ruin everything.",
+  "Think outside the sandbox.",
+  "Hackers write history.",
+  "Knowledge is the ultimate exploit.",
+  "Patch early, patch often.",
+  "Command line is the true playground.",
+  "Obfuscation is an illusion.",
+  "Attack the problem, not the people.",
+  "The weakest link is always human."
+];
+
+const taunts = [
+  "maybe try harder?",
+  "you call that hacking?",
+  "root is watching...",
+  "keep going.",
+  "not bad... not great either.",
+  "prove yourself.",
+  "this is just the beginning.",
+  "is that all you got?",
+  "careful, or you'll get pwnd!",
+  "try again, rookie.",
+  "loops and recursion are your friends.",
+  "the firewall laughs at you.",
+  "patches won't save you.",
+  "your syntax is showing.",
+  "think faster!",
+  "404 skills not found?",
+  "brute force is brute wrong.",
+  "network sniffing in progress...",
+  "hone your craft.",
+  "latency is a feature, not a bug.",
+  "you shall not pass (without skill).",
+  "challenge accepted… maybe.",
+  "keep fingers on keys, not nose.",
+  "almost… but no flag.",
+  "debug your life too.",
+  "404 motivation not found.",
+  "try a different vector.",
+  "ethical hacking only!",
+  "remember: logs are watching.",
+  "there is always another vulnerability."
+];
+
+function loadContent() {
+    const quote = quotes[Math.floor(Math.random() * quotes.length)];
+    const taunt = taunts[Math.floor(Math.random() * taunts.length)];
+
+    document.getElementById("quote").innerText = quote;
+    document.getElementById("taunt").innerText = taunt;
+}
+
+window.onload = loadContent;
+</script>
+
+
+{% endblock %}
