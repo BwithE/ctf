@@ -39,7 +39,7 @@ python main.py
 
 ### Capture The Flags
 
-<img width="1343" height="652" alt="Screenshot 2026-04-04 195953" src="https://github.com/user-attachments/assets/4588def3-88d1-4190-996d-c9398c3d5089" />
+<img width="2282" height="549" alt="Screenshot 2026-04-04 200245" src="https://github.com/user-attachments/assets/9a64418a-e37c-45da-97fb-42094b04ead8" />
 
 ### Leaderboard
 
